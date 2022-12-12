@@ -1,25 +1,64 @@
-import React from 'react';
+import React, { createContext, useMemo, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { createTheme, CssBaseline, PaletteMode, ThemeProvider } from '@mui/material';
+import { amber, grey, deepOrange, } from '@mui/material/colors';
+
+const getDesignTokens = (mode: PaletteMode) => ({
+  palette: {
+    mode,
+    ...(mode === 'light'
+      ? {
+          // palette values for light mode
+          primary: amber,
+          divider: amber[200],
+          text: {
+            primary: grey[900],
+            secondary: grey[800],
+          },
+        }
+      : {
+          // palette values for dark mode
+          primary: deepOrange,
+          divider: deepOrange[700],
+          background: {
+            default: deepOrange[900],
+            paper: deepOrange[900],
+          },
+          text: {
+            primary: '#fff',
+            secondary: grey[500],
+          },
+        }),
+  },
+});
 
 function App() {
+  const ColorModeContext = createContext({ toggleColorMode: () => {} });
+
+  
+  const [themeMode, setThemeMode] = useState<PaletteMode>("light")
+  const colorMode = React.useMemo(
+    () => ({
+      // The dark mode switch would invoke this method
+      toggleColorMode: () => {
+        setThemeMode((prevMode: PaletteMode) =>
+          prevMode === 'light' ? 'dark' : 'light',
+        );
+      },
+    }),
+    [],
+  );
+  const theme = React.useMemo(() => createTheme(getDesignTokens(themeMode)), [themeMode]);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ColorModeContext.Provider value={colorMode}>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+          <div>
+
+          </div>
+      </ThemeProvider>
+    </ColorModeContext.Provider>
   );
 }
 
