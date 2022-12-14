@@ -1,8 +1,7 @@
 import React, { createContext, useMemo, useState } from 'react';
-import logo from './logo.svg';
-import './App.css';
 import { createTheme, CssBaseline, PaletteMode, ThemeProvider } from '@mui/material';
 import { amber, grey, deepOrange, } from '@mui/material/colors';
+import Home from '$components/Home';
 
 const getDesignTokens = (mode: PaletteMode) => ({
   palette: {
@@ -54,9 +53,7 @@ function App() {
     <ColorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-          <div>
-
-          </div>
+          <Home/>
       </ThemeProvider>
     </ColorModeContext.Provider>
   );
