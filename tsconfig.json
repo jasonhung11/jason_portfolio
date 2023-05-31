@@ -3,7 +3,14 @@
   "compilerOptions": {
     "baseUrl": ".",
     "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "paths": {
+      "components/*": ["components/*"]
+    },
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -18,5 +25,8 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": ["src", "craco.config.js"]
+  "include": [
+    "src/**/*",  "**/*.ts", "**/*.tsx",
+  ],
+  "exclude": ["node_modules", "styles"]
 }
