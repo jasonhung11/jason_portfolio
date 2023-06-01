@@ -68,42 +68,43 @@ export default function Skills(){
 
     return (
 
-            <Grid container spacing={2} style={{padding: "0% 20% 2% 20%",}} >
-                {skillSets.map((skillset, index) =>{
-                    console.log(skillset)
-                    console.log(skillset.title)
-                    return(
-                        <Grid item xs={4}>
-                            <Card>
-                                <CardContent>
-                                <h5>{skillset.title}</h5>
-                                {/* <Typography variant="h5" component="div"> */}
+            // <Grid container spacing={2} style={{padding: "0% 20% 2% 20%",}} >
+            //     {skillSets.map((skillset, index) =>{
+            //         console.log(skillset)
+            //         console.log(skillset.title)
+            //         return(
+            //             <Grid item xs={4}>
+            //                 <Card>
+            //                     <CardContent>
+            //                     <h5>{skillset.title}</h5>
+            //                     {/* <Typography variant="h5" component="div"> */}
 
-                                {/* </Typography> */}
-                                <Grid2 container spacing={2}>
+            //                     {/* </Typography> */}
+            //                     <Grid2 container spacing={2}>
 
-                                {skillset.skills.map((skill) =>{
-                                    console.log(skill)
-                                    return(
-                                        <Grid2 xs={6} lg={3} md={4} >
-                                            <SkillIcon
-                                                src={skill.skillImage}
-                                                alt={skill.skillName}
-                                            />
-                                        </Grid2>
-                                    )
-                                })}
-                                </Grid2>
-                                </CardContent>
-                            </Card>
-                        </Grid>
-                    )
-                })}
+            //                     {skillset.skills.map((skill) =>{
+            //                         console.log(skill)
+            //                         return(
+            //                             <Grid2 xs={6} lg={3} md={4} >
+            //                                 <SkillIcon
+            //                                     src={skill.skillImage}
+            //                                     alt={skill.skillName}
+            //                                 />
+            //                             </Grid2>
+            //                         )
+            //                     })}
+            //                     </Grid2>
+            //                     </CardContent>
+            //                 </Card>
+            //             </Grid>
+            //         )
+            //     })}
                 
 
 
 
                
-            </Grid>
+            // </Grid>
+            <></>
     );
 }
