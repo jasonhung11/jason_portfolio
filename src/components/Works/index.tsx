@@ -1,5 +1,6 @@
 import { Grid } from "@mui/material";
 import WorkDetail from './WorkDetail'
+import { Timeline, TimelineConnector, TimelineContent, TimelineDot, TimelineItem, TimelineSeparator } from "@mui/lab";
 
 export interface Work{
     company: string;
@@ -58,12 +59,44 @@ export default function Works(){
     ]
 
     return (
-            <Grid style={{padding: "0% 0% 2% 20%",}}>
+            <Grid style={{}}>
+{/* padding: "0% 0% 2% 20%", */}
+<Timeline position="alternate" style={{backgroundColor: '', paddingLeft: 0}}>
 
                 {workExp.map((work, index) =>{
                     return <WorkDetail index={index} work={work}></WorkDetail>
                 })}
+</Timeline>
 
+{/* <Timeline position="alternate">
+      <TimelineItem>
+        <TimelineSeparator>
+          <TimelineDot />
+          <TimelineConnector />
+        </TimelineSeparator>
+        <TimelineContent>Eat</TimelineContent>
+      </TimelineItem>
+      <TimelineItem>
+        <TimelineSeparator>
+          <TimelineDot />
+          <TimelineConnector />
+        </TimelineSeparator>
+        <TimelineContent>Code</TimelineContent>
+      </TimelineItem>
+      <TimelineItem>
+        <TimelineSeparator>
+          <TimelineDot />
+          <TimelineConnector />
+        </TimelineSeparator>
+        <TimelineContent>Sleep</TimelineContent>
+      </TimelineItem>
+      <TimelineItem>
+        <TimelineSeparator>
+          <TimelineDot />
+        </TimelineSeparator>
+        <TimelineContent>Repeat</TimelineContent>
+      </TimelineItem>
+    </Timeline> */}
             </Grid>
     );
 

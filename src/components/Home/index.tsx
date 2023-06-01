@@ -10,7 +10,7 @@ import { Grid } from "@mui/material";
 export default function Home(){
     const elementList = [
         // createNavItem(<Navbar/>, "navbar"),
-        createNavItem(<AboutMe/>, "Aboute"),
+        createNavItem(<AboutMe/>, "About Me"),
         createNavItem(<Projects/>, "Projects"),
         createNavItem(<Skills/>, "Skills"),
         createNavItem(<Certificate/>, "Certificate"),

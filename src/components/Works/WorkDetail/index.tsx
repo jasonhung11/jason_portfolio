@@ -17,39 +17,29 @@ export default function WorkDetail(props: {work: Work, index: number}) {
     console.log(index, "index")
     var paddingLeftPercentage = index * 15 + '%';
     return (
-        <Timeline position="left" style={{backgroundColor: '', paddingLeft: paddingLeftPercentage, width: '100%'}}>
+        
             <TimelineItem>
-                <TimelineContent style={{textAlign:'left'}}>
+                <TimelineSeparator>
+                    <WorkIcon htmlColor="#C5C5C5"/>
+                <TimelineConnector />
+                </TimelineSeparator>
+                <TimelineContent >
                     <Typography variant="h6" component="h4">{timeRange}</Typography>
                     <Typography variant="h5" component="h4" style={{fontWeight: "bold"}}>
                         {position}
                     </Typography>
 
-                    <Typography>{company}</Typography>
-                    <ul style={{listStyleType: "U+1F44D"}}>
+                    <Typography variant="h6" component="h4" style={{fontWeight: "bold"}}>{company}</Typography>
+                    {/* <ul style={{listStyleType: "U+1F44D"}}> */}
                         {duty.map((detail, item) => {
-                            return <li ><Typography variant="body1" component="h4" >{detail}</Typography></li>
+                            return <Typography variant="body1" component="h4" >- {detail}</Typography>
                         })}
-                    </ul>
+                    {/* </ul> */}
 
 
                 </TimelineContent>
-                <TimelineSeparator>
-                    <WorkIcon htmlColor="#C5C5C5">
-                        {/*
-                        <IconButton 
-                        size="small"
-                        onClick={() => {
-                            window.open("", "_blank");
-                        }}>
-                            <StrawberryLogo style={{ height: 40, width: 40 }}></StrawberryLogo>
-                        </IconButton>
-                        */}
-                    </WorkIcon>
-                    <TimelineConnector />
-                </TimelineSeparator>
+
 
             </TimelineItem>
-        </Timeline>
     );
   }
