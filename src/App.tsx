@@ -2,6 +2,7 @@ import React, { createContext, useMemo, useState } from 'react';
 import { createTheme, CssBaseline, PaletteMode, ThemeProvider } from '@mui/material';
 import { amber, grey, deepOrange, } from '@mui/material/colors';
 import Home from 'src/components/Home';
+import "./App.css"
 // import Home from 'components/Home';
 
 const getDesignTokens = (mode: PaletteMode) => ({
