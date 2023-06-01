@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 
 export const SkillIcon = styled.img`
-    width: 40px;
+    width: 30px;
     margin: 0 1px;
 `

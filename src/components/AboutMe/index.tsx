@@ -1,12 +1,15 @@
-import { Grid, Button } from "@mui/material";
+import { Grid, Button, Card } from "@mui/material";
 import me from "../../images/me.png"
 import { MyImage } from "./styles";
+import Skills from "../Skills";
+import React from "react";
 export default function AboutMe(){
     return (
         <Grid style={{display: "flex", margin: "2% 15%", justifyContent:"center"}}>
         <Grid>
             <MyImage src={me}/>
         </Grid>
+        
         <Grid style={{alignItems: "center", display: "flex", }}>
             <Grid>
                 <h1>
@@ -15,6 +18,9 @@ export default function AboutMe(){
                 <p style={{alignItems: "center"}}>
                     I'm Jason xxxxxxx  
                 </p> 
+                <Card style={{width: "70%", padding: "2% 0"}} >
+                    <Skills/>
+                </Card>
                 <Button>
                     Download MY CV
                 </Button>

@@ -6,13 +6,13 @@ import Skills from "../Skills";
 import Works from "../Works";
 import { Element } from 'react-scroll'
 import { Grid } from "@mui/material";
+import React from "react";
 
 export default function Home(){
     const elementList = [
         // createNavItem(<Navbar/>, "navbar"),
         createNavItem(<AboutMe/>, "About Me"),
         createNavItem(<Projects/>, "Projects"),
-        createNavItem(<Skills/>, "Skills"),
         createNavItem(<Certificate/>, "Certificate"),
         createNavItem(<Works/>, "Works")
         
