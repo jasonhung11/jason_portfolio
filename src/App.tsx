@@ -11,8 +11,8 @@ const getDesignTokens = (mode: PaletteMode) => ({
     ...(mode === 'light'
       ? {
           // palette values for light mode
-          primary: amber,
-          divider: amber[200],
+          primary: '#ffc107',
+          divider: '#ffc107',
           text: {
             primary: grey[900],
             secondary: grey[800],
@@ -50,7 +50,24 @@ function App() {
     }),
     [],
   );
-  const theme = React.useMemo(() => createTheme(getDesignTokens(themeMode)), [themeMode]);
+  // const theme = React.useMemo(() => createTheme(getDesignTokens(themeMode)), [themeMode]);
+
+  const theme = createTheme({
+    palette: {
+      primary: {
+        light: '#99A98F',
+        main: '#C1D0B5',
+        dark: '#D6E8DB',
+        contrastText: '#FFF8DE',
+      },
+      secondary: {
+        light: '#ff7961',
+        main: '#f44336',
+        dark: '#ba000d',
+        contrastText: '#000',
+      },
+    },
+  })
   return (
     <ColorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>

@@ -10,6 +10,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 // import { Link } from '@mui/material';
 import { NavBarLinkContainer, NavBarTitle } from './styles';
 import {Link} from 'react-scroll'
+import React from 'react';
 // const ScrollLink = Scroll
 
 
@@ -50,7 +51,7 @@ export default function Navbar() {
                             <Link 
                             // activeClass="active"
                                 // color="inherit" 
-                                style={{margin: "0 1em" }}
+                                style={{margin: "0 1em", fontSize: "1.2rem" }}
                                 to={item.id}
                                 // to={"/#" + item.id}
                                 spy={true} 

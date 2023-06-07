@@ -10,6 +10,8 @@ import react_icon from "../../images/React-icon.png";
 import restful_icon from "../../images/restful-api.png";
 import mysql_icon from "../../images/MySQL.png";
 import python_icon from "../../images/python.jpeg";
+import aws_icon from "../../images/aws.png";
+import terraform_icom from "../../images/terraform.png";
 import { SkillIcon } from "./styles";
 import React from "react";
 
@@ -66,8 +68,11 @@ export default function Skills() {
     CreateSingleSkill("Node js", nodejs_icon),
     CreateSingleSkill("Python", python_icon),
     CreateSingleSkill("MySQL", mysql_icon),
-    CreateSingleSkill("Node js", nodejs_icon),
+    CreateSingleSkill("AWS", aws_icon),
+    CreateSingleSkill("Terraform", terraform_icom),
     CreateSingleSkill("Restful API", restful_icon),
+
+
     CreateSingleSkill("React js", react_icon),
     CreateSingleSkill("Next js", nextjs_icon),
     CreateSingleSkill("Node js", nodejs_icon),

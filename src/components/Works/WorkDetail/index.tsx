@@ -9,13 +9,12 @@ import TimelineDot from '@mui/lab/TimelineDot';
 import TimelineOppositeContent from '@mui/lab/TimelineOppositeContent';
 import IconButton from '@mui/material/IconButton';
 import { Work } from '..';
+import React from 'react';
 
 
 export default function WorkDetail(props: {work: Work, index: number}) {
     const {company, position, timeRange, duty} = props.work
-    const index = props.index 
-    console.log(index, "index")
-    var paddingLeftPercentage = index * 15 + '%';
+    const index = props.index
     return (
         
             <TimelineItem>
