@@ -40,3 +40,9 @@
 html * {
   font-family: "optima", "sans-serif" !important;
 }
+
+
+html, body {
+  width: 100%;
+  min-width: 700px;
+}

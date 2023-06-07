@@ -7,8 +7,9 @@ import Works from "../Works";
 import { Element } from 'react-scroll'
 import { Grid } from "@mui/material";
 import React from "react";
-
+import { useMediaQuery } from "../../useMediaQuery";
 export default function Home(){
+    const isRowBased = useMediaQuery('(min-width: 700px)');
     const elementList = [
         // createNavItem(<Navbar/>, "navbar"),
         createNavItem(<AboutMe/>, "About Me"),
@@ -21,8 +22,9 @@ export default function Home(){
         return {item, id}
     }
     return (
-        <>
-            <Navbar/>
+        <div>
+            {/*  display navbar or sidebar */} 
+            {isRowBased && <Navbar/>}
             {elementList.map(({item, id}: {item: JSX.Element, id: string}) => {
                 return (
                     <Element id={id} name={id}>
@@ -36,6 +38,6 @@ export default function Home(){
                     </Element>
                 )
             })}
-        </>
+        </div>
     )
 }
