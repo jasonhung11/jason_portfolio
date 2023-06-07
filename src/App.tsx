@@ -1,33 +1,48 @@
-import React, { createContext, useMemo, useState } from 'react';
-import { createTheme, CssBaseline, PaletteMode, ThemeProvider } from '@mui/material';
-import { amber, grey, deepOrange, } from '@mui/material/colors';
-import Home from 'src/components/Home';
-import "./App.css"
+import React, { createContext, useMemo, useState } from "react";
+import {
+  createTheme,
+  CssBaseline,
+  PaletteMode,
+  ThemeProvider,
+} from "@mui/material";
+import { amber, grey, deepOrange } from "@mui/material/colors";
+import Home from "src/components/Home";
+import "./App.css";
 // import Home from 'components/Home';
 
 const getDesignTokens = (mode: PaletteMode) => ({
   palette: {
     mode,
-    ...(mode === 'light'
+    ...(mode === "light"
       ? {
           // palette values for light mode
-          primary: '#ffc107',
-          divider: '#ffc107',
-          text: {
-            primary: grey[900],
-            secondary: grey[800],
+          primary: {
+            light: "#99A98F",
+            main: "#C1D0B5",
+            dark: "#D6E8DB",
+            contrastText: "#FFF8DE",
+          },
+          secondary: {
+            light: "#ff7961",
+            main: "#f44336",
+            dark: "#ba000d",
+            contrastText: "#000",
           },
         }
       : {
           // palette values for dark mode
-          primary: deepOrange,
-          divider: deepOrange[700],
+          primary: {
+            light: "#27374D",
+            main: "#fff",
+            dark: "#27374D",
+            contrastText: "#fff",
+          },
           background: {
-            default: deepOrange[900],
-            paper: deepOrange[900],
+            default: "#27374D",
+            paper: "#526D82", 
           },
           text: {
-            primary: '#fff',
+            primary: "#fff",
             secondary: grey[500],
           },
         }),
@@ -37,42 +52,41 @@ const getDesignTokens = (mode: PaletteMode) => ({
 function App() {
   const ColorModeContext = createContext({ toggleColorMode: () => {} });
 
-  
-  const [themeMode, setThemeMode] = useState<PaletteMode>("light")
+  const [themeMode, setThemeMode] = useState<PaletteMode>("light");
   const colorMode = React.useMemo(
     () => ({
       // The dark mode switch would invoke this method
       toggleColorMode: () => {
         setThemeMode((prevMode: PaletteMode) =>
-          prevMode === 'light' ? 'dark' : 'light',
+          prevMode === "light" ? "dark" : "light"
         );
       },
     }),
-    [],
+    []
   );
-  // const theme = React.useMemo(() => createTheme(getDesignTokens(themeMode)), [themeMode]);
+  const theme = React.useMemo(() => createTheme(getDesignTokens(themeMode)), [themeMode]);
 
-  const theme = createTheme({
-    palette: {
-      primary: {
-        light: '#99A98F',
-        main: '#C1D0B5',
-        dark: '#D6E8DB',
-        contrastText: '#FFF8DE',
-      },
-      secondary: {
-        light: '#ff7961',
-        main: '#f44336',
-        dark: '#ba000d',
-        contrastText: '#000',
-      },
-    },
-  })
+  // const theme = createTheme({
+  //   palette: {
+  //     primary: {
+  //       light: "#99A98F",
+  //       main: "#C1D0B5",
+  //       dark: "#D6E8DB",
+  //       contrastText: "#FFF8DE",
+  //     },
+  //     secondary: {
+  //       light: "#ff7961",
+  //       main: "#f44336",
+  //       dark: "#ba000d",
+  //       contrastText: "#000",
+  //     },
+  //   },
+  // });
   return (
     <ColorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-          <Home/>
+        <Home />
       </ThemeProvider>
     </ColorModeContext.Provider>
   );
