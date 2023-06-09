@@ -22,6 +22,7 @@ export default function AboutMe() {
   const iconStyle = {
     width: '400px',
     height: 'auto'
+    //testing
   }
   return (
     <Grid style={aboutMeStyle}>
