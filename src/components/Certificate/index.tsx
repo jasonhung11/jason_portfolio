@@ -1,8 +1,9 @@
-import { Card } from "@mui/material";
+import { Card, Grid } from "@mui/material";
 import saa_03 from "../../images/aws-certified-solutions-architect-associate.png";
 import comingSoon from "../../images/abstract-coming-soon-halftone-style-background-design_1017-27282.png";
 import React from "react";
-
+import { useMediaQuery } from "../../useMediaQuery";
+import { Height } from "@mui/icons-material";
 interface Cert {
   url: string;
   image: string;
@@ -18,17 +19,45 @@ export default function Certificate() {
       saa_03
     ),
   ];
-  return (
-    <div style={{ padding: "0% 20% 2% 20%", display: "flex" }}>
-      {certs.map((cert: Cert, i: number) => (
-        <Card style={{ boxShadow: "0.5rem gold", borderColor: "#FFD700", margin: "0 2%", padding: "2%" }}>
-          <a href={cert.url} target="_blank">
-            <img src={cert.image}></img>
-          </a>
-        </Card>
-      ))}
 
-      <img style={{marginLeft: "10%", height: "216px" }} src={comingSoon}></img>
+  certs.push(createCertifcate("", comingSoon));
+
+  const isSpaceBetween = useMediaQuery("(min-width: 700px)");
+  const isDesktopView = useMediaQuery("(min-width: 700px)");
+
+  const certificateGridStyle = {
+    padding: isDesktopView ? "0" : "0% 10% 2% 10%",
+    display: "flex",
+  };
+  const comingSoonStyle = {
+    // padding: "2% 0",
+    // marginLeft: isSpaceBetween ? "10%" : "0",
+    height: "200px",
+    width: "200px",
+  };
+  return (
+    <div style={certificateGridStyle}>
+      <Grid container  >
+        {certs.map((cert: Cert, i: number) => (
+          <Grid xs={6} md={5} lg={3}>
+            <Card
+              style={{
+                textAlign: "center",
+                boxShadow: "0.5rem gold",
+                borderColor: "#FFD700",
+                padding: "10%",
+                overflow: "initial",
+              }}
+            >
+              <a href={cert.url} target="_blank">
+                <img src={cert.image} style={comingSoonStyle}></img>
+              </a>
+            </Card>
+          </Grid>
+        ))}
+      </Grid>
+
+      {/* <img style={comingSoonStyle} src={comingSoon}></img> */}
     </div>
   );
 }

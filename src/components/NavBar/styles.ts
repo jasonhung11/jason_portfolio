@@ -7,5 +7,6 @@ export const NavBarTitle = styled.h4`
 
 export const NavBarLinkContainer = styled(Grid)`
 // padding: 0 15%;
+    display: flex;
 
 `

@@ -5,24 +5,21 @@ import Skills from "../Skills";
 import React from "react";
 
 export default function AboutMe() {
-  const displayIcon = useMediaQuery("(min-width: 700px)");
-  const isMatch_1200 = useMediaQuery("(min-width: 1200px)");
+  const displayIcon = useMediaQuery("(min-width: 1400px)");
+  const isDesktopView = useMediaQuery("(min-width: 700px)");
   // fix Icon and Skills spacing
   const aboutMeStyle = {
-    display: isMatch_1200 ? "flex" : "block",
-    margin: "2% 15%",
-    justifyContent: "center",
+    display: isDesktopView ? "flex" : "block",
   };
 
   const skillsGridStyle = {
-    width: isMatch_1200 ? "70%" : "100%",
+    width: "100%",
     padding: "2% 0" 
   }
 
   const iconStyle = {
-    width: '400px',
+    width: '300px',
     height: 'auto'
-    //testing
   }
   return (
     <Grid style={aboutMeStyle}>
@@ -31,11 +28,11 @@ export default function AboutMe() {
           <MyImage src={me} />
         </Grid>
       )} */}
-      <Grid>
+      <Grid style={{textAlign: "center"}}>
         <MyImage src={me} style={iconStyle}/>
       </Grid>
-
-      <Grid style={{ alignItems: "center", display: "flex" }}>
+      
+      <Grid style={{ alignItems: "center", display: "flex",justifyContent: "center" }}>
         <Grid>
           <h1>Welcome to Jason's Portfolio</h1>
           <p style={{ alignItems: "center" }}>I'm Jason xxxxxxx</p>
