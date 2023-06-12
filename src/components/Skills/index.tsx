@@ -1,7 +1,4 @@
 import { Grid } from "@mui/material";
-import Grid2 from "@mui/material/Unstable_Grid2";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
 import Asp_Net_icon from "../src/Images/asp-net.png";
 import java_icon from "../../images/java_icon.png";
 import nextjs_icon from "../../images/nextjs.png";
@@ -12,6 +9,9 @@ import mysql_icon from "../../images/MySQL.png";
 import python_icon from "../../images/python.jpeg";
 import aws_icon from "../../images/aws.png";
 import terraform_icom from "../../images/terraform.png";
+import git_icon from "../../images/git.png";
+import docker_icon from "../../images/docker.png";
+import k8s_icon from "../../images/k8s.png";
 import { SkillIcon } from "./styles";
 import React from "react";
 
@@ -71,22 +71,24 @@ export default function Skills() {
     CreateSingleSkill("AWS", aws_icon),
     CreateSingleSkill("Terraform", terraform_icom),
     CreateSingleSkill("Restful API", restful_icon),
-
-
-    CreateSingleSkill("React js", react_icon),
-    CreateSingleSkill("Next js", nextjs_icon),
-    CreateSingleSkill("Node js", nodejs_icon),
-    CreateSingleSkill("Python", python_icon),
-    CreateSingleSkill("MySQL", mysql_icon),
-    CreateSingleSkill("Node js", nodejs_icon),
-    CreateSingleSkill("Restful API", restful_icon),
-    CreateSingleSkill("React js", react_icon),
-    CreateSingleSkill("Next js", nextjs_icon),
-    CreateSingleSkill("Node js", nodejs_icon),
-    CreateSingleSkill("Python", python_icon),
-    CreateSingleSkill("MySQL", mysql_icon),
-    CreateSingleSkill("Node js", nodejs_icon),
-    CreateSingleSkill("Restful API", restful_icon)
+    CreateSingleSkill("Git", git_icon),
+    CreateSingleSkill("Docker", docker_icon),
+    CreateSingleSkill("K8S", k8s_icon),
+    
+    // CreateSingleSkill("React js", react_icon),
+    // CreateSingleSkill("Next js", nextjs_icon),
+    // CreateSingleSkill("Node js", nodejs_icon),
+    // CreateSingleSkill("Python", python_icon),
+    // CreateSingleSkill("MySQL", mysql_icon),
+    // CreateSingleSkill("Node js", nodejs_icon),
+    // CreateSingleSkill("Restful API", restful_icon),
+    // CreateSingleSkill("React js", react_icon),
+    // CreateSingleSkill("Next js", nextjs_icon),
+    // CreateSingleSkill("Node js", nodejs_icon),
+    // CreateSingleSkill("Python", python_icon),
+    // CreateSingleSkill("MySQL", mysql_icon),
+    // CreateSingleSkill("Node js", nodejs_icon),
+    // CreateSingleSkill("Restful API", restful_icon)
   );
 
   return (
