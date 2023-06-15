@@ -1,6 +1,6 @@
 import { Card, Grid } from "@mui/material";
 import saa_03 from "../../images/aws-certified-solutions-architect-associate.png";
-import comingSoon from "../../images/abstract-coming-soon-halftone-style-background-design_1017-27282.png";
+import comingSoon from "../../images/commingSoon.png";
 import React from "react";
 import { useMediaQuery } from "../../useMediaQuery";
 import { Height } from "@mui/icons-material";
@@ -26,7 +26,7 @@ export default function Certificate() {
   const isDesktopView = useMediaQuery("(min-width: 700px)");
 
   const certificateGridStyle = {
-    padding: isDesktopView ? "0" : "0% 10% 2% 10%",
+    padding: isDesktopView ? "0% 10% 2% 10%" : "0",
     display: "flex",
   };
   const comingSoonStyle = {
@@ -37,16 +37,19 @@ export default function Certificate() {
   };
   return (
     <div style={certificateGridStyle}>
-      <Grid container  >
+      <Grid container spacing={10} >
         {certs.map((cert: Cert, i: number) => (
-          <Grid xs={6} md={5} lg={3}>
+          <Grid item xs={6} md={5} lg={3} >
             <Card
               style={{
-                textAlign: "center",
+                justifyContent: "center",
                 boxShadow: "0.5rem gold",
                 borderColor: "#FFD700",
-                padding: "10%",
-                overflow: "initial",
+                // padding: "10%",
+                height: "250px",
+                width: "250px",
+                alignItems: "center",
+                display: "flex"
               }}
             >
               <a href={cert.url} target="_blank">

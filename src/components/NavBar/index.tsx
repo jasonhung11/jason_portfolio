@@ -12,9 +12,11 @@ import { NavBarLinkContainer, NavBarTitle } from "./styles";
 import { Link } from "react-scroll";
 import React from "react";
 import { useMediaQuery } from "../../useMediaQuery";
+import WbSunnyOutlinedIcon from '@mui/icons-material/WbSunnyOutlined';
+import DarkModeIcon from '@mui/icons-material/DarkMode';
 // const ScrollLink = Scroll
 
-export default function Navbar({isHideNavItem}: {isHideNavItem: boolean}) {
+export default function Navbar({ isHideNavItem }: { isHideNavItem: boolean }) {
   const navbarItems = [
     CreateNavbarItem("projects", "Projects"),
     CreateNavbarItem("skills", "Skills"),
@@ -46,9 +48,8 @@ export default function Navbar({isHideNavItem}: {isHideNavItem: boolean}) {
       <Toolbar>
         <NavBarLinkContainer
           container
-          display="flex"
-          justifyContent="space-around"
         >
+            <div style={{padding: "0 5%", display:"flex", }}>
           <Grid item display="flex">
             <NavBarTitle> Jason's Profile</NavBarTitle>
             {isHideNavItem && (
@@ -71,7 +72,9 @@ export default function Navbar({isHideNavItem}: {isHideNavItem: boolean}) {
           </Grid>
 
           <Grid item display="flex" alignItems="center">
-            {soicalIcons.map((item) => (
+            <WbSunnyOutlinedIcon/>
+            <DarkModeIcon/>
+            {/* {soicalIcons.map((item) => (
               <IconContext.Provider value={{ color: "white", size: "1.7em" }}>
                 <a
                   href={item.link}
@@ -82,8 +85,9 @@ export default function Navbar({isHideNavItem}: {isHideNavItem: boolean}) {
                   <item.icon />
                 </a>
               </IconContext.Provider>
-            ))}
+            ))} */}
           </Grid>
+            </div>
         </NavBarLinkContainer>
       </Toolbar>
     </AppBar>

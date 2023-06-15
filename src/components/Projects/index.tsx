@@ -39,7 +39,8 @@ const Project = (props: { project: ProjectType[] }) => {
   );
 };
 
-export default function Projects() {
+export default function Projects({isDesktopView}: {isDesktopView: boolean}) {
+  const isMobileView = useMediaQuery("(min-width: 700px)");
   const projects = [
     CreateProjectDetails(
       "UST hackaython",
@@ -101,11 +102,11 @@ export default function Projects() {
       </div>
     );
   }
-  const isMobileView = useMediaQuery("(min-width: 700px)");
+
 
   const projectGridStyle = {
-    padding: isMobileView ? "0% 10% 2% 10%" : "0% 20% 2% 20%"
-  }
+    padding: isDesktopView ? "0% 15% 2% 15%" : "0% 5% 2% 5%",
+  };
 
   return (
     <Grid style={projectGridStyle}>
