@@ -111,7 +111,7 @@ export default function Projects({isDesktopView}: {isDesktopView: boolean}) {
   return (
     <Grid style={projectGridStyle}>
       <Box sx={{ borderBottom: 1, borderColor: "#c9cdcc" }}>
-        <Tabs value={value} onChange={handleChange} centered>
+        <Tabs value={value} onChange={handleChange} centered textColor="inherit">
           <Tab label="IT Event" />
           <Tab label="Side Projects" />
         </Tabs>

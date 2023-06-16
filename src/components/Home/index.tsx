@@ -15,7 +15,7 @@ export default function Home() {
     // createNavItem(<Navbar/>, "navbar"),
     createNavItem(<AboutMe />, ""),
     createNavItem(<Projects isDesktopView={isChangeProjectView}/>, "Projects"),
-    createNavItem(<Certificate />, "Certificate"),
+    createNavItem(<Certificate isDesktopView={isDesktopView}/>, "Certificate"),
     createNavItem(<Works />, "Works"),
   ];
   function createNavItem(item: JSX.Element, id: string) {
@@ -23,7 +23,7 @@ export default function Home() {
   }
 
   const elementStyle = {
-    padding: isRowBased ? "0% 12% 2%" : "0",
+    padding: isRowBased ? "0% 12% 2%" : "0 3% 1%",
   }
 
   const matches = useMediaQuery('(min-width:700px)', { noSsr: true });

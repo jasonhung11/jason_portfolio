@@ -1,5 +1,6 @@
 import React, { createContext, useMemo, useState } from "react";
 import {
+  Button,
   createTheme,
   CssBaseline,
   PaletteMode,
@@ -16,29 +17,53 @@ const getDesignTokens = (mode: PaletteMode) => ({
     ...(mode === "light"
       ? {
           // palette values for light mode
-          primary: amber,
-          divider: amber[200],
-          text: {
-            primary: grey[900],
-            secondary: grey[800],
+          // primary: '#ffc107',
+          // divider: '#ffc107',
+          // text: {
+          //   primary: grey[900],
+          //   secondary: grey[800],
+          // },
+          primary: {
+            light: "#000",
+            main: "#fff",
+            dark: "#000",
+            contrastText: "#000",
           },
           background: {
             default: "#fff",
             paper: "#fff",
           },
+          secondary: {
+            main: "#64748B",
+            contrastText: "#fff",
+          },
         }
       : {
           // palette values for dark mode
-          primary: deepOrange,
-          divider: deepOrange[700],
-          background: {
-            default: deepOrange[900],
-            paper: deepOrange[900],
+          // primary: deepOrange,
+          // divider: deepOrange[700],
+          // background: {
+          //   default: deepOrange[900],
+          //   paper: deepOrange[900],
+          // },
+          // text: {
+          //   primary: '#fff',
+          //   secondary: grey[500],
+          // },
+          // primary: {
+          //   light: "#001e3c",
+          //   main: "#001e3c",
+          //   dark: "#001e3c",
+          //   contrastText: "#001e3c",
+          // },
+          primary: {
+            main: "#001e3c",
           },
           text: {
-            primary: "#fff",
-            secondary: grey[500],
+            primary: "#000",
           },
+          background: { default: "#020814", paper: "#020814" },
+
         }),
   },
 });
@@ -46,16 +71,21 @@ const getDesignTokens = (mode: PaletteMode) => ({
 function App() {
   const ColorModeContext = createContext({ toggleColorMode: () => {} });
 
-  const [mode, setMode] = React.useState<"light" | "dark">("light");
+  const [themeMode, setThemeMode] = useState<PaletteMode>("light");
   const colorMode = React.useMemo(
     () => ({
       toggleColorMode: () => {
-        setMode((prevMode) => (prevMode === "light" ? "dark" : "light"));
+        setThemeMode((prevMode: PaletteMode) =>
+          prevMode === "light" ? "dark" : "light"
+        );
       },
     }),
     []
   );
-  const theme = React.useMemo(() => createTheme(getDesignTokens(mode)), [mode]);
+  const theme = React.useMemo(
+    () => createTheme(getDesignTokens(themeMode)),
+    [themeMode]
+  );
 
   return (
     <ColorModeContext.Provider value={colorMode}>

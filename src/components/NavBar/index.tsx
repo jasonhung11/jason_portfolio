@@ -12,8 +12,8 @@ import { NavBarLinkContainer, NavBarTitle } from "./styles";
 import { Link } from "react-scroll";
 import React from "react";
 import { useMediaQuery } from "../../useMediaQuery";
-import WbSunnyOutlinedIcon from '@mui/icons-material/WbSunnyOutlined';
-import DarkModeIcon from '@mui/icons-material/DarkMode';
+import WbSunnyOutlinedIcon from "@mui/icons-material/WbSunnyOutlined";
+import DarkModeIcon from "@mui/icons-material/DarkMode";
 // const ScrollLink = Scroll
 
 export default function Navbar({ isHideNavItem }: { isHideNavItem: boolean }) {
@@ -44,12 +44,13 @@ export default function Navbar({ isHideNavItem }: { isHideNavItem: boolean }) {
   ];
 
   return (
-    <AppBar position="sticky">
+    <AppBar color="primary" position="sticky">
       <Toolbar>
         <NavBarLinkContainer
           container
+          display="flex"
+          justifyContent="space-between"
         >
-            <div style={{padding: "0 5%", display:"flex", }}>
           <Grid item display="flex">
             <NavBarTitle> Jason's Profile</NavBarTitle>
             {isHideNavItem && (
@@ -70,11 +71,13 @@ export default function Navbar({ isHideNavItem }: { isHideNavItem: boolean }) {
               </Grid>
             )}
           </Grid>
-
           <Grid item display="flex" alignItems="center">
-            <WbSunnyOutlinedIcon/>
-            <DarkModeIcon/>
-            {/* {soicalIcons.map((item) => (
+            <WbSunnyOutlinedIcon />
+            <DarkModeIcon />
+          </Grid>
+
+          {/* <Grid item display="flex" alignItems="center">
+            {soicalIcons.map((item) => (
               <IconContext.Provider value={{ color: "white", size: "1.7em" }}>
                 <a
                   href={item.link}
@@ -85,9 +88,8 @@ export default function Navbar({ isHideNavItem }: { isHideNavItem: boolean }) {
                   <item.icon />
                 </a>
               </IconContext.Provider>
-            ))} */}
-          </Grid>
-            </div>
+            ))}
+          </Grid> */}
         </NavBarLinkContainer>
       </Toolbar>
     </AppBar>
