@@ -95,7 +95,7 @@ export default function Skills() {
     <Grid container spacing={2} justifyContent="center" alignContent="center">
       {skillSets2.map((skill, index) => {
         return (
-          <Grid item xs={6} md={4} lg={2} textAlign="center">
+          <Grid item xs={3} md={3} lg={2} textAlign="center">
             <SkillIcon
               //   style={{ padding: "8px" }}
               src={skill.skillImage}
