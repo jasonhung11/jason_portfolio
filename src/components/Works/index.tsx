@@ -66,7 +66,7 @@ export default function Works() {
   ];
 
   return (
-    <Grid style={{}}>
+    <Grid>
       {/* padding: "0% 0% 2% 20%", */}
       <Timeline
         position="alternate"
