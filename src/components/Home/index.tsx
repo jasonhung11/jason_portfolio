@@ -9,20 +9,21 @@ import { Grid, useMediaQuery } from "@mui/material";
 import React from "react";
 export default function Home() {
   const isRowBased = useMediaQuery("(min-width: 818px)");
+  const isDesktopView = useMediaQuery("(min-width: 700px)");
+  const isChangeProjectView = useMediaQuery("(min-width: 1000px)");
   const elementList = [
     // createNavItem(<Navbar/>, "navbar"),
     createNavItem(<AboutMe />, ""),
-    createNavItem(<Projects />, "Projects"),
-    createNavItem(<Certificate />, "Certificate"),
+    createNavItem(<Projects isDesktopView={isChangeProjectView}/>, "Projects"),
+    createNavItem(<Certificate isDesktopView={isDesktopView}/>, "Certificate"),
     createNavItem(<Works />, "Works"),
   ];
   function createNavItem(item: JSX.Element, id: string) {
     return { item, id };
   }
 
-  const isMobileView = useMediaQuery("(min-width: 700px)");
   const elementStyle = {
-    padding: isMobileView ? "0% 12% 2%" : "0",
+    padding: isRowBased ? "0% 12% 2%" : "0 3% 1%",
   }
 
   const matches = useMediaQuery('(min-width:700px)', { noSsr: true });
@@ -35,10 +36,10 @@ export default function Home() {
       {<Navbar isHideNavItem={isRowBased}/>}
       {elementList.map(({ item, id }: { item: JSX.Element; id: string }) => {
         return (
-          <Element id={id} name={id} style={elementStyle}>
+          <Element id={id} name={id} style={elementStyle} >
             <Grid>
               {id !== "" && <h1 style={elementHeaderStyle}>{id}</h1>}
-              <div>{item}</div>
+              <div >{item}</div>
             </Grid>
           </Element>
         );

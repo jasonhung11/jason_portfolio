@@ -1,80 +1,79 @@
-import React, { createContext, useMemo, useState } from 'react';
-import { createTheme, CssBaseline, PaletteMode, ThemeProvider } from '@mui/material';
-import { amber, grey, deepOrange, } from '@mui/material/colors';
-import Home from 'src/components/Home';
-import "./App.css"
+import React, { createContext, useMemo, useState } from "react";
+import {
+  Button,
+  createTheme,
+  CssBaseline,
+  PaletteMode,
+  ThemeProvider,
+} from "@mui/material";
+import { amber, grey, deepOrange } from "@mui/material/colors";
+import Home from "./components/Home";
+import "./App.css";
+import { useMediaQuery } from "./useMediaQuery";
+import Navbar from "./components/NavBar";
+// import { ColorModeProvider } from "./context/themeContext";
 // import Home from 'components/Home';
+import { MyThemeContext } from "./context/themeContext";
 
 const getDesignTokens = (mode: PaletteMode) => ({
   palette: {
     mode,
-    ...(mode === 'light'
+    ...(mode === "light"
       ? {
-          // palette values for light mode
-          primary: '#ffc107',
-          divider: '#ffc107',
-          text: {
-            primary: grey[900],
-            secondary: grey[800],
+          primary: {
+            light: "#000",
+            main: "#fff",
+            dark: "#000",
+            contrastText: "#000",
+          },
+          background: {
+            default: "#fff",
+            paper: "#fff",
+          },
+          secondary: {
+            main: "#64748B",
+            contrastText: "#fff",
           },
         }
       : {
-          // palette values for dark mode
-          primary: deepOrange,
-          divider: deepOrange[700],
-          background: {
-            default: deepOrange[900],
-            paper: deepOrange[900],
+          primary: {
+            light: "#fff",
+            main: "#000",
+            dark: "#fff",
+            contrastText: "#fff",
           },
-          text: {
-            primary: '#fff',
-            secondary: grey[500],
+          background: {
+            default: "#000",
+            paper: "#01040E",
+          },
+          secondary: {
+            main: "#fff",
+            contrastText: "#000",
           },
         }),
   },
 });
 
 function App() {
-  const ColorModeContext = createContext({ toggleColorMode: () => {} });
-
-  
-  const [themeMode, setThemeMode] = useState<PaletteMode>("light")
-  const colorMode = React.useMemo(
-    () => ({
-      // The dark mode switch would invoke this method
-      toggleColorMode: () => {
-        setThemeMode((prevMode: PaletteMode) =>
-          prevMode === 'light' ? 'dark' : 'light',
-        );
-      },
-    }),
-    [],
+  const isRowBased = useMediaQuery("(min-width: 818px)");
+  const [themeMode, setThemeMode] = useState<PaletteMode>("light");
+  const theme = React.useMemo(
+    () => createTheme(getDesignTokens(themeMode)),
+    [themeMode]
   );
-  // const theme = React.useMemo(() => createTheme(getDesignTokens(themeMode)), [themeMode]);
 
-  const theme = createTheme({
-    palette: {
-      primary: {
-        light: '#99A98F',
-        main: '#C1D0B5',
-        dark: '#D6E8DB',
-        contrastText: '#FFF8DE',
-      },
-      secondary: {
-        light: '#ff7961',
-        main: '#f44336',
-        dark: '#ba000d',
-        contrastText: '#000',
-      },
-    },
-  })
+  const setTheme = () => {
+    setThemeMode((prevMode) => (prevMode === "light" ? "dark" : "light"));
+  };
+
   return (
-    <ColorModeContext.Provider value={colorMode}>
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
-          <Home/>
-      </ThemeProvider>
-    </ColorModeContext.Provider>
+    <ThemeProvider theme={theme}>
+      <MyThemeContext.Provider value={{ themeMode, setTheme }}>
+        <CssBaseline>
+          <Home />
+        </CssBaseline>
+      </MyThemeContext.Provider>
+    </ThemeProvider>
   );
 }
 

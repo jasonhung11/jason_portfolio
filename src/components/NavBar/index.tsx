@@ -10,18 +10,22 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 // import { Link } from '@mui/material';
 import { NavBarLinkContainer, NavBarTitle } from "./styles";
 import { Link } from "react-scroll";
-import React from "react";
+import React, { useContext } from "react";
 import { useMediaQuery } from "../../useMediaQuery";
+import { IconButton } from '@mui/material';
+import WbSunnyOutlinedIcon from "@mui/icons-material/WbSunnyOutlined";
+import DarkModeIcon from "@mui/icons-material/DarkMode";
+import { useThemeContext } from "../../context/themeContext";
 // const ScrollLink = Scroll
 
-export default function Navbar({isHideNavItem}: {isHideNavItem: boolean}) {
+export default function Navbar({ isHideNavItem }: { isHideNavItem: boolean }) {
   const navbarItems = [
     CreateNavbarItem("projects", "Projects"),
     CreateNavbarItem("skills", "Skills"),
     CreateNavbarItem("certificate", "Certificate"),
     CreateNavbarItem("work", "Working Experience"),
   ];
-
+  const {themeMode, setTheme} = useThemeContext()
   function CreateNavbarItem(id: string, name: string) {
     return { id, name };
   }
@@ -42,12 +46,12 @@ export default function Navbar({isHideNavItem}: {isHideNavItem: boolean}) {
   ];
 
   return (
-    <AppBar position="sticky">
+    <AppBar color="primary" position="sticky">
       <Toolbar>
         <NavBarLinkContainer
           container
           display="flex"
-          justifyContent="space-around"
+          justifyContent="space-between"
         >
           <Grid item display="flex">
             <NavBarTitle> Jason's Profile</NavBarTitle>
@@ -69,8 +73,14 @@ export default function Navbar({isHideNavItem}: {isHideNavItem: boolean}) {
               </Grid>
             )}
           </Grid>
-
           <Grid item display="flex" alignItems="center">
+            <IconButton onClick={() => setTheme()} style={{color: themeMode === "light" ? "#000" : "#fff"}}>
+              {themeMode === "light" ? <WbSunnyOutlinedIcon /> : <DarkModeIcon /> }
+            </IconButton>
+            <DarkModeIcon />
+          </Grid>
+
+          {/* <Grid item display="flex" alignItems="center">
             {soicalIcons.map((item) => (
               <IconContext.Provider value={{ color: "white", size: "1.7em" }}>
                 <a
@@ -83,7 +93,7 @@ export default function Navbar({isHideNavItem}: {isHideNavItem: boolean}) {
                 </a>
               </IconContext.Provider>
             ))}
-          </Grid>
+          </Grid> */}
         </NavBarLinkContainer>
       </Toolbar>
     </AppBar>
