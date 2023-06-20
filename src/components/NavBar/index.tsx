@@ -10,10 +10,12 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 // import { Link } from '@mui/material';
 import { NavBarLinkContainer, NavBarTitle } from "./styles";
 import { Link } from "react-scroll";
-import React from "react";
+import React, { useContext } from "react";
 import { useMediaQuery } from "../../useMediaQuery";
+import { IconButton } from '@mui/material';
 import WbSunnyOutlinedIcon from "@mui/icons-material/WbSunnyOutlined";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
+import { useThemeContext } from "../../context/themeContext";
 // const ScrollLink = Scroll
 
 export default function Navbar({ isHideNavItem }: { isHideNavItem: boolean }) {
@@ -23,7 +25,7 @@ export default function Navbar({ isHideNavItem }: { isHideNavItem: boolean }) {
     CreateNavbarItem("certificate", "Certificate"),
     CreateNavbarItem("work", "Working Experience"),
   ];
-
+  const {themeMode, setTheme} = useThemeContext()
   function CreateNavbarItem(id: string, name: string) {
     return { id, name };
   }
@@ -72,7 +74,9 @@ export default function Navbar({ isHideNavItem }: { isHideNavItem: boolean }) {
             )}
           </Grid>
           <Grid item display="flex" alignItems="center">
-            <WbSunnyOutlinedIcon />
+            <IconButton onClick={() => setTheme()} style={{color: themeMode === "light" ? "#000" : "#fff"}}>
+              {themeMode === "light" ? <WbSunnyOutlinedIcon /> : <DarkModeIcon /> }
+            </IconButton>
             <DarkModeIcon />
           </Grid>
 

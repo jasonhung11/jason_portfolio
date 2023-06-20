@@ -7,22 +7,19 @@ import {
   ThemeProvider,
 } from "@mui/material";
 import { amber, grey, deepOrange } from "@mui/material/colors";
-import Home from "src/components/Home";
+import Home from "./components/Home";
 import "./App.css";
+import { useMediaQuery } from "./useMediaQuery";
+import Navbar from "./components/NavBar";
+// import { ColorModeProvider } from "./context/themeContext";
 // import Home from 'components/Home';
+import { MyThemeContext } from "./context/themeContext";
 
 const getDesignTokens = (mode: PaletteMode) => ({
   palette: {
     mode,
     ...(mode === "light"
       ? {
-          // palette values for light mode
-          // primary: '#ffc107',
-          // divider: '#ffc107',
-          // text: {
-          //   primary: grey[900],
-          //   secondary: grey[800],
-          // },
           primary: {
             light: "#000",
             main: "#fff",
@@ -39,62 +36,44 @@ const getDesignTokens = (mode: PaletteMode) => ({
           },
         }
       : {
-          // palette values for dark mode
-          // primary: deepOrange,
-          // divider: deepOrange[700],
-          // background: {
-          //   default: deepOrange[900],
-          //   paper: deepOrange[900],
-          // },
-          // text: {
-          //   primary: '#fff',
-          //   secondary: grey[500],
-          // },
-          // primary: {
-          //   light: "#001e3c",
-          //   main: "#001e3c",
-          //   dark: "#001e3c",
-          //   contrastText: "#001e3c",
-          // },
           primary: {
-            main: "#001e3c",
+            light: "#fff",
+            main: "#000",
+            dark: "#fff",
+            contrastText: "#fff",
           },
-          text: {
-            primary: "#000",
+          background: {
+            default: "#000",
+            paper: "#01040E",
           },
-          background: { default: "#020814", paper: "#020814" },
-
+          secondary: {
+            main: "#fff",
+            contrastText: "#000",
+          },
         }),
   },
 });
 
 function App() {
-  const ColorModeContext = createContext({ toggleColorMode: () => {} });
-
+  const isRowBased = useMediaQuery("(min-width: 818px)");
   const [themeMode, setThemeMode] = useState<PaletteMode>("light");
-  const colorMode = React.useMemo(
-    () => ({
-      toggleColorMode: () => {
-        setThemeMode((prevMode: PaletteMode) =>
-          prevMode === "light" ? "dark" : "light"
-        );
-      },
-    }),
-    []
-  );
   const theme = React.useMemo(
     () => createTheme(getDesignTokens(themeMode)),
     [themeMode]
   );
 
+  const setTheme = () => {
+    setThemeMode((prevMode) => (prevMode === "light" ? "dark" : "light"));
+  };
+
   return (
-    <ColorModeContext.Provider value={colorMode}>
-      <CssBaseline>
-        <ThemeProvider theme={theme}>
+    <ThemeProvider theme={theme}>
+      <MyThemeContext.Provider value={{ themeMode, setTheme }}>
+        <CssBaseline>
           <Home />
-        </ThemeProvider>
-      </CssBaseline>
-    </ColorModeContext.Provider>
+        </CssBaseline>
+      </MyThemeContext.Provider>
+    </ThemeProvider>
   );
 }
 
