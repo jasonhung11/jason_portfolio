@@ -36,7 +36,7 @@ export default function Home() {
       {<Navbar isHideNavItem={isRowBased}/>}
       {elementList.map(({ item, id }: { item: JSX.Element; id: string }) => {
         return (
-          <Element id={id} name={id} style={elementStyle} >
+          <Element id={id.toLowerCase()} name={id.toLowerCase()} style={elementStyle} >
             <Grid>
               {id !== "" && <h1 style={elementHeaderStyle}>{id}</h1>}
               <div >{item}</div>
