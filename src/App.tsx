@@ -1,18 +1,13 @@
-import React, { createContext, useMemo, useState } from "react";
+import React, { useState } from "react";
 import {
-  Button,
   createTheme,
   CssBaseline,
   PaletteMode,
   ThemeProvider,
 } from "@mui/material";
-import { amber, grey, deepOrange } from "@mui/material/colors";
 import Home from "./components/Home";
 import "./App.css";
 import { useMediaQuery } from "./useMediaQuery";
-import Navbar from "./components/NavBar";
-// import { ColorModeProvider } from "./context/themeContext";
-// import Home from 'components/Home';
 import { MyThemeContext } from "./context/themeContext";
 
 const getDesignTokens = (mode: PaletteMode) => ({

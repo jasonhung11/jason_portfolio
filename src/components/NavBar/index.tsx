@@ -1,22 +1,15 @@
 import AppBar from "@mui/material/AppBar";
 import { BsLinkedin } from "react-icons/bs";
-import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
 import { GoMarkGithub } from "react-icons/go";
-import { IconContext, IconType } from "react-icons";
+import { IconType } from "react-icons";
 import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
-// import { Link } from '@mui/material';
 import { NavBarLinkContainer, NavBarTitle } from "./styles";
 import { Link } from "react-scroll";
-import React, { useContext } from "react";
-import { useMediaQuery } from "../../useMediaQuery";
 import { IconButton } from "@mui/material";
 import WbSunnyOutlinedIcon from "@mui/icons-material/WbSunnyOutlined";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import { useThemeContext } from "../../context/themeContext";
-// const ScrollLink = Scroll
 
 export default function Navbar({ isHideNavItem }: { isHideNavItem: boolean }) {
   const navbarItems = [
@@ -58,7 +51,7 @@ export default function Navbar({ isHideNavItem }: { isHideNavItem: boolean }) {
               <Grid item display="flex" alignItems="center">
                 {navbarItems.map((item) => (
                   <Link
-                    style={{ margin: "0 1em", fontSize: "1.2rem" }}
+                    style={{ margin: "0 1em", fontSize: "1.2rem", cursor: "pointer" }}
                     to={item.id}
                     spy={true}
                     smooth={true}
