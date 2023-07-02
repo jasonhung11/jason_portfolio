@@ -28,7 +28,7 @@ export default function SingleProject(props: {project: ProjectType} ) {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button color="secondary" size="small">Learn More</Button>
+        <Button color="secondary" size="small" href={project.link} target='_blank'>Learn More</Button>
       </CardActions>
     </SingleProjectCard>
   );

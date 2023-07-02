@@ -32,9 +32,21 @@ export default function AboutMe() {
     height: "auto",
   };
   const contactList = [
-    createContactItem(<GitHubIcon fontSize="medium" />, "jasonhung11", "https://github.com/jasonhung11"),
-    createContactItem(<LinkedInIcon fontSize="medium" />, "jasonhung", "https://www.linkedin.com/in/jason-hung-3a5791217/"),
-    createContactItem(<EmailIcon fontSize="medium" />, "jasonhung9923@gmail.com", "mailto:jasonhung9923@gmail.com"),
+    createContactItem(
+      <GitHubIcon fontSize="medium" />,
+      "jasonhung11",
+      "https://github.com/jasonhung11"
+    ),
+    createContactItem(
+      <LinkedInIcon fontSize="medium" />,
+      "jasonhung",
+      "https://www.linkedin.com/in/jason-hung-3a5791217/"
+    ),
+    createContactItem(
+      <EmailIcon fontSize="medium" />,
+      "jasonhung9923@gmail.com",
+      "mailto:jasonhung9923@gmail.com"
+    ),
   ];
 
   function createContactItem(item: JSX.Element, id: string, url: string) {
@@ -52,7 +64,9 @@ export default function AboutMe() {
               return (
                 <li
                   id={index.toString()}
-                  onClick={() => {window.open(url)}}
+                  onClick={() => {
+                    window.open(url);
+                  }}
                   style={contactIconStyle}
                 >
                   {item}
@@ -87,11 +101,22 @@ export default function AboutMe() {
         >
           <h1>Welcome to Jason's Portfolio</h1>
           <p style={{ alignItems: "center" }}>
-            I’m Jason, currently work as a programmer in StrawberryNet. I would
+            {/* I’m Jason, currently work as a programmer in StrawberryNet. I would
             say I'm passionate in software development which build projects with
             myself or with other friends. I have also participated in different
             IT competitions with my friends to strengthen my real- world coding
-            experience.
+            experience. */}
+            Hello! This is Jason. As a software engineer, I am passionate about designing and
+            developing innovative software solutions that meet the needs of
+            users. 
+            I have a strong background in computer science, programming
+            languages, and software development methodologies. I have experience
+            working with a variety of programming languages such as <b>Java,
+            Python, C#, and JavaScript</b>. 
+            <br></br>
+            <br></br>
+            I am skilled in build scalable and
+            efficient system architecture for different use case, such as <b>AWS, Azure</b>.
           </p>
 
           <Card style={skillsGridStyle}>

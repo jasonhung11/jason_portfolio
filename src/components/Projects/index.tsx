@@ -39,7 +39,11 @@ const Project = (props: { project: ProjectType[] }) => {
   );
 };
 
-export default function Projects({isDesktopView}: {isDesktopView: boolean}) {
+export default function Projects({
+  isDesktopView,
+}: {
+  isDesktopView: boolean;
+}) {
   const isMobileView = useMediaQuery("(min-width: 700px)");
   const projects = [
     CreateProjectDetails(
@@ -53,9 +57,9 @@ export default function Projects({isDesktopView}: {isDesktopView: boolean}) {
       ""
     ),
     CreateProjectDetails(
-      "CFT 2021",
-      "descibe myself and express my skill set",
-      ""
+      "CTF 2021",
+      "Continuous innovation in Internet technology development and applications has enhanced quality of life and work efficiency but at the same time has created various new cyber security challenges. By participating the competition, my cyber security skills have been strengthen and building teamwork, creative thinking and cyber security skills by solving those problems. ",
+      "https://www.hkcert.org/event/capture-the-flag-challenge-2021"
     ),
   ];
 
@@ -103,7 +107,6 @@ export default function Projects({isDesktopView}: {isDesktopView: boolean}) {
     );
   }
 
-
   const projectGridStyle = {
     padding: isDesktopView ? "0% 15% 2% 15%" : "0% 5% 2% 5%",
   };
@@ -111,7 +114,12 @@ export default function Projects({isDesktopView}: {isDesktopView: boolean}) {
   return (
     <Grid style={projectGridStyle}>
       <Box sx={{ borderBottom: 1, borderColor: "#c9cdcc" }}>
-        <Tabs value={value} onChange={handleChange} centered textColor="inherit">
+        <Tabs
+          value={value}
+          onChange={handleChange}
+          centered
+          textColor="inherit"
+        >
           <Tab label="IT Event" />
           <Tab label="Side Projects" />
         </Tabs>
