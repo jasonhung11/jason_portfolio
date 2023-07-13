@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/jason_profiles/static/css/main.765002b9.css",
+    "main.js": "/jason_profiles/static/js/main.928fc349.js",
+    "static/js/787.28cb0dcd.chunk.js": "/jason_profiles/static/js/787.28cb0dcd.chunk.js",
+    "static/media/docker.png": "/jason_profiles/static/media/docker.69ff44dfe7fe66489a99.png",
+    "static/media/MySQL.png": "/jason_profiles/static/media/MySQL.5b30c82540a50d449504.png",
+    "static/media/me.png": "/jason_profiles/static/media/me.3da3303777ba443fcefd.png",
+    "static/media/python.jpeg": "/jason_profiles/static/media/python.f9dc70303b81180b774d.jpeg",
+    "static/media/React-icon.png": "/jason_profiles/static/media/React-icon.73dbb5bcec516da82694.png",
+    "static/media/nodejs.png": "/jason_profiles/static/media/nodejs.abfaef34ea49d0c7cd3c.png",
+    "static/media/aws-certified-solutions-architect-associate.png": "/jason_profiles/static/media/aws-certified-solutions-architect-associate.525b8ce51bbc40736201.png",
+    "static/media/aws.png": "/jason_profiles/static/media/aws.613215568c26cfef6ed3.png",
+    "static/media/nextjs.png": "/jason_profiles/static/media/nextjs.a725f5cb51998c30c03a.png",
+    "index.html": "/jason_profiles/index.html",
+    "main.765002b9.css.map": "/jason_profiles/static/css/main.765002b9.css.map",
+    "main.928fc349.js.map": "/jason_profiles/static/js/main.928fc349.js.map",
+    "787.28cb0dcd.chunk.js.map": "/jason_profiles/static/js/787.28cb0dcd.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.765002b9.css",
+    "static/js/main.928fc349.js"
+  ]
+}
