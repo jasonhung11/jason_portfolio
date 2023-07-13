@@ -1,6 +1,7 @@
 {
   "name": "my-app",
   "version": "0.1.0",
+  "homepage": "https://jasonhung11.github.io/jason_profiles",
   "private": true,
   "dependencies": {
     "@mui/icons-material": "^5.11.0",
@@ -22,6 +23,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "craco start",
     "build": "craco build",
     "test": "craco test",
@@ -49,6 +52,7 @@
     "@craco/craco": "^7.1.0",
     "@emotion/react": "^11.11.0",
     "@emotion/styled": "^11.11.0",
-    "@types/react-scroll": "^1.8.5"
+    "@types/react-scroll": "^1.8.5",
+    "gh-pages": "^5.0.0"
   }
 }

@@ -23,12 +23,13 @@ export default function SingleProject(props: {project: ProjectType} ) {
           {project.title}
         </Typography>
 
-        <Typography variant="body2">
+        <Typography variant="body2" style={{marginTop: "3%", padding: "0 1%"}}>
           {project.description}
         </Typography>
       </CardContent>
       <CardActions>
-        <Button color="secondary" size="small" href={project.link} target='_blank'>Learn More</Button>
+        {project.link !== "" &&  <Button color="secondary" size="small" href={project.link} target='_blank'>Learn More</Button>}
+       
       </CardActions>
     </SingleProjectCard>
   );

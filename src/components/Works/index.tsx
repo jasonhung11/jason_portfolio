@@ -33,13 +33,26 @@ export default function Works() {
 
   const workExp = [
     createWork(
-      "StrawberryNet",
-      "Junior Programmer",
-      "12/2021 - Now",
+      "CornerStone Technologies",
+      "Backend developer",
+      "02/2023 - 08/2023",
       createWorkDuty(
-        "Develop front end from stretch (marketplace) ",
-        "Coding for restful api",
-        "Working with different departments"
+        "Maintain and integrate website and kiosk backend system using Java Spring Boot",
+        "Write and test new functionality using JUnit based on user’s requirements",
+        "Monitor and troubleshoot database query performance",
+        "Propose a cloud migration solution from the on-premises server to cloud using AWS",
+        "Migrate on-premises server to AWS using Elastic beanstalk, RDS, OpenSearch etc…",
+      )
+    ),
+    createWork(
+      "StrawberryNet",
+      "Programmer",
+      "12/2021 - 02/2023",
+      createWorkDuty(
+        "Cooperating with front-end developer to write API using TypeScript Next.js",
+        "Monitoring the technical performance of internal systems",
+        "Create and maintain workflows with teams to provide visibility and to ensure workload balance for consistent visual designs",
+        "Writing SQL Stored Procedures for better performance and maintainability",
       )
     ),
     createWork(
@@ -50,17 +63,6 @@ export default function Works() {
         "Conducting research and analysing data to identify and define audiences",
         "Devising and presenting ideas and strategies",
         "Maintaining websites and looking at data analytics"
-      )
-    ),
-    createWork(
-      "YMCA HK",
-      "Part Time Tutor",
-      "10/2019 - 06/2020,",
-      createWorkDuty(
-        "Demonstrate academic competence in the subject area(s) and build a curriculum",
-        "Maintain a growth mindset toward student learning and teaching practice",
-        "Contribute to student learning, growth and advancement",
-        "Facilitate problem-solving with a curious mind and critical thinking skills"
       )
     ),
   ];

@@ -48,12 +48,12 @@ export default function Projects({
   const projects = [
     CreateProjectDetails(
       "UST hackaython",
-      "use program to auto follow user to reach more target audience",
+      "Design a dating app that bring people with similar hobbies together, aims to bring the user from the internet to the real world. ",
       ""
     ),
     CreateProjectDetails(
       "City hackaython",
-      "descibe myself and express my skill set",
+      "Create a travel-based social media application in React native, and use serverless Architecture in AWS cloud to set up the service. People tend to travel by themselves rather than travel agency nowadays, as most of the information could be found online. ",
       ""
     ),
     CreateProjectDetails(
@@ -65,18 +65,19 @@ export default function Projects({
 
   const sideProjects = [
     CreateProjectDetails(
-      "Instagram Auto-following Bot",
-      "Allow user to gain more exposure by following target audience",
+      "Instagram Auto-following Bot (Python)",
+      "Use AWS EC2 to follow target audience by getting the target list, which help business account to gain more exposure by following target audience\
+      Receive email notification if there is any error",
       ""
     ),
     CreateProjectDetails(
-      "Portfolio",
-      "descibe myself and express my skill set",
+      "Portfolio (React TS)",
+      "Use React TS to write front-end code and use git Action to push it to AWS S3 static host for hosting",
       ""
     ),
     CreateProjectDetails(
-      "Portfolio",
-      "descibe myself and express my skill set",
+      "Algorithmic Trading (Python)",
+      "Place order on IB automatically using AWS technology, set tradingView alarm to trigger AWS lambda. And place it into AWS SQS and start up the connection with IB.",
       ""
     ),
   ];
@@ -120,15 +121,15 @@ export default function Projects({
           centered
           textColor="inherit"
         >
-          <Tab label="IT Event" />
           <Tab label="Side Projects" />
+          <Tab label="IT Event" />
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
-        <Project project={projects} />
+        <Project project={sideProjects} />
       </TabPanel>
       <TabPanel value={value} index={1}>
-        <Project project={sideProjects} />
+        <Project project={projects} />
       </TabPanel>
     </Grid>
   );

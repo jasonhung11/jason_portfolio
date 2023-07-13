@@ -115,8 +115,7 @@ export default function AboutMe() {
             Python, C#, and JavaScript</b>. 
             <br></br>
             <br></br>
-            I am skilled in build scalable and
-            efficient system architecture for different use case, such as <b>AWS, Azure</b>.
+            Moreover, i have solid experience and knowledge in cloud solution as well, running application serverless and mirgating on-premises server to cloud.
           </p>
 
           <Card style={skillsGridStyle}>
