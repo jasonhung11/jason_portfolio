@@ -16,16 +16,18 @@ interface TabPanelProps {
 
 export interface ProjectType {
   title: string;
-  description: string;
+  description: string | JSX.Element;
   link: string;
+  skills: string[]
 }
 
 function CreateProjectDetails(
   title: string,
-  description: string,
-  link: string
+  description: string | JSX.Element,
+  link: string,
+  skills: string[]
 ): ProjectType {
-  return { title, description, link } as ProjectType;
+  return { title, description, link, skills } as ProjectType;
 }
 
 const Project = (props: { project: ProjectType[] }) => {
@@ -49,37 +51,43 @@ export default function Projects({
     CreateProjectDetails(
       "UST hackaython",
       "Design a dating app that bring people with similar hobbies together, aims to bring the user from the internet to the real world. ",
-      ""
+      "",
+      []
     ),
     CreateProjectDetails(
       "City hackaython",
       "Create a travel-based social media application in React native, and use serverless Architecture in AWS cloud to set up the service. People tend to travel by themselves rather than travel agency nowadays, as most of the information could be found online. ",
-      ""
+      "",
+      []
     ),
     CreateProjectDetails(
       "CTF 2021",
       "Continuous innovation in Internet technology development and applications has enhanced quality of life and work efficiency but at the same time has created various new cyber security challenges. By participating the competition, my cyber security skills have been strengthen and building teamwork, creative thinking and cyber security skills by solving those problems. ",
-      "https://www.hkcert.org/event/capture-the-flag-challenge-2021"
+      "https://www.hkcert.org/event/capture-the-flag-challenge-2021",
+      []
     ),
   ];
 
   const sideProjects = [
     CreateProjectDetails(
-      "Instagram Auto-following Bot (Python)",
-      "Use AWS EC2 to follow target audience by getting the target list, which help business account to gain more exposure by following target audience\
-      Receive email notification if there is any error",
-      ""
+      "Stock Tracker ",
+      <>This is a web app I built where users can track their favorite stocks and get notified when prices hit a target. I used React with TypeScript for the front end, and let users add stocks to their personal watchlist. Behind the scenes, the app <b>fetches real-time stock data from a third-party API and checks if any tracked stock meets the user’s alert criteria</b>. It’s hosted on AWS S3 with CI/CD handled by GitHub Actions, so updates are smooth and automated. Super handy for keeping an eye on the market without constantly checking.</>,
+      "",
+      ["ReactTS", "Java Spring Boot", "RESTful API", "AWS RDS", "AWS S3 hosting", "Github Actions"]
     ),
     CreateProjectDetails(
-      "Portfolio (React TS)",
-      "Use React TS to write front-end code and use git Action to push it to AWS S3 static host for hosting",
-      ""
+      "Instagram Auto-following Bot ",
+      <>This is a Python-based automation bot I built to help with audience growth on Instagram.<b> It runs on AWS EC2 and connects to the Instagram API to automatically follow users based on a target list</b>. The bot identifies potential followers by pulling usernames from competitor or niche accounts, then interacts with them to increase visibility. It was a fun project to dive deeper into automation, APIs, and cloud hosting.</>,
+      "", ["Python", "AWS EC2", "AWS RDS"]
     ),
     CreateProjectDetails(
-      "Algorithmic Trading (Python)",
-      "Place order on IB automatically using AWS technology, set tradingView alarm to trigger AWS lambda. And place it into AWS SQS and start up the connection with IB.",
-      ""
+      "Portfolio",
+      "I built this website using React with TypeScript to showcase my projects, experience, and skills as a software engineer. It’s a simple, responsive site that highlights my journey and the work I’ve done so far. I’m using GitHub Pages for deployment and set up GitHub Actions for automatic updates whenever I push changes. It’s my little corner of the internet where I can keep everything organized and share my work with others."
+
+      ,
+      "", ["ReactTS", "Material UI", "Docker", "Github Pages", "Github Actions"]
     ),
+
   ];
 
   const [value, setValue] = React.useState(0);

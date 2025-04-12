@@ -1,7 +1,7 @@
 import AppBar from "@mui/material/AppBar";
 import { BsLinkedin } from "react-icons/bs";
 import Grid from "@mui/material/Grid";
-import { GoMarkGithub } from "react-icons/go";
+import { FaGithub } from "react-icons/fa";
 import { IconType } from "react-icons";
 import Toolbar from "@mui/material/Toolbar";
 import { NavBarLinkContainer, NavBarTitle } from "./styles";
@@ -15,7 +15,7 @@ export default function Navbar({ isHideNavItem }: { isHideNavItem: boolean }) {
   const navbarItems = [
     CreateNavbarItem("projects", "Projects"),
     CreateNavbarItem("certificate", "Certificate"),
-    CreateNavbarItem("work", "Working Experience"),
+    CreateNavbarItem("working experience", "Working Experience"),
   ];
   const { themeMode, setTheme } = useThemeContext();
   function CreateNavbarItem(id: string, name: string) {
@@ -29,7 +29,7 @@ export default function Navbar({ isHideNavItem }: { isHideNavItem: boolean }) {
 
   // Add email button
   const soicalIcons = [
-    CreateSocialIcons(GoMarkGithub, "GitHub", "https://github.com/jasonhung11"),
+    CreateSocialIcons(FaGithub, "GitHub", "https://github.com/jasonhung11"),
     CreateSocialIcons(
       BsLinkedin,
       "Linkedin",

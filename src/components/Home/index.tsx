@@ -14,9 +14,9 @@ export default function Home() {
   const elementList = [
     // createNavItem(<Navbar/>, "navbar"),
     createNavItem(<AboutMe />, ""),
-    createNavItem(<Projects isDesktopView={isChangeProjectView}/>, "Projects"),
-    createNavItem(<Certificate isDesktopView={isDesktopView}/>, "Certificate"),
-    createNavItem(<Works />, "Works"),
+    createNavItem(<Projects isDesktopView={isChangeProjectView} />, "Projects"),
+    createNavItem(<Certificate isDesktopView={isDesktopView} />, "Certificate"),
+    createNavItem(<Works />, "Working Experience"),
   ];
   function createNavItem(item: JSX.Element, id: string) {
     return { item, id };
@@ -28,12 +28,13 @@ export default function Home() {
 
   const matches = useMediaQuery('(min-width:700px)', { noSsr: true });
   const elementHeaderStyle = {
-    padding: matches ? "0": "5%", 
+    padding: matches ? "0" : "5%",
   }
+  
   return (
     <div >
       {/*  display navbar or sidebar */}
-      {<Navbar isHideNavItem={isRowBased}/>}
+      {<Navbar isHideNavItem={isRowBased} />}
       {elementList.map(({ item, id }: { item: JSX.Element; id: string }) => {
         return (
           <Element id={id.toLowerCase()} name={id.toLowerCase()} style={elementStyle} >

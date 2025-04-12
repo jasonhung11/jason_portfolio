@@ -1,44 +1,48 @@
 import Typography from '@mui/material/Typography';
-import Timeline from '@mui/lab/Timeline';
 import TimelineItem from '@mui/lab/TimelineItem';
 import TimelineSeparator from '@mui/lab/TimelineSeparator';
 import TimelineConnector from '@mui/lab/TimelineConnector';
 import TimelineContent from '@mui/lab/TimelineContent';
 import WorkIcon from '@mui/icons-material/Work';
-import TimelineDot from '@mui/lab/TimelineDot';
 import TimelineOppositeContent from '@mui/lab/TimelineOppositeContent';
-import IconButton from '@mui/material/IconButton';
+
 import { Work } from '..';
-import React from 'react';
+
+import { Box, } from '@mui/material';
 
 
-export default function WorkDetail(props: {work: Work, index: number}) {
-    const {company, position, timeRange, duty} = props.work
+export default function WorkDetail(props: { work: Work, index: number }) {
+    const { company, position, timeRange, duty, skills } = props.work
     const index = props.index
     return (
-        
-            <TimelineItem>
-                <TimelineSeparator>
-                    <WorkIcon htmlColor="#C5C5C5"/>
-                <TimelineConnector />
-                </TimelineSeparator>
-                <TimelineContent >
-                    <Typography variant="h6" component="h4">{timeRange}</Typography>
-                    <Typography variant="h5" component="h4" style={{fontWeight: "bold"}}>
+        <>
+            <TimelineItem sx={{ marginBottom: "1rem" }}>
+                <TimelineOppositeContent color="textSecondary">
+                    <Typography variant="subtitle2" component="h4">{timeRange}</Typography>
+                    <Typography variant="h5" component="h4" sx={{ fontSize: "1rem", fontWeight: "bold" }}>
+                        {company}
+                    </Typography>
+                    <Typography variant="h5" component="h4" style={{ fontWeight: "bold" }}>
                         {position}
                     </Typography>
+                </TimelineOppositeContent>
+                <TimelineSeparator>
+                    <WorkIcon />
+                    <TimelineConnector />
+                </TimelineSeparator>
 
-                    <Typography variant="h6" component="h4" style={{fontWeight: "bold"}}>{company}</Typography>
-                    {/* <ul style={{listStyleType: "U+1F44D"}}> */}
-                        {duty.map((detail, item) => {
-                            return <Typography variant="body1" component="h4" >- {detail}</Typography>
-                        })}
-                    {/* </ul> */}
+                <TimelineContent>
+                    {skills.length > 0 && <>Tech Stacks: {' '}
+                        <strong>{skills.join(', ')}</strong>
+                    </>}
+                    <Box>
+                        <ul>
+                            {duty}
+                        </ul>
 
-
+                    </Box>
                 </TimelineContent>
-
-
             </TimelineItem>
+        </>
     );
-  }
+}

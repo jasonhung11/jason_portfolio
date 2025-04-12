@@ -1,4 +1,4 @@
-import { Grid, Button, Card, useMediaQuery } from "@mui/material";
+import { Grid, Button, Card, useMediaQuery, Typography, List, ListItem } from "@mui/material";
 import me from "../../images/me.png";
 import { MyImage } from "./styles";
 import Skills from "../Skills";
@@ -18,8 +18,12 @@ export default function AboutMe() {
   const contactIconStyle = {
     display: "flex",
     alignItems: "center",
-    marginBottom: "10px",
     cursor: "pointer",
+    transition: "transform 0.2s ease-in-out",
+    '&:hover': {
+      transform: "scale(1.05)",
+    },
+
   };
 
   const skillsGridStyle = {
@@ -44,8 +48,8 @@ export default function AboutMe() {
     ),
     createContactItem(
       <EmailIcon fontSize="medium" />,
-      "jasonhung9923@gmail.com",
-      "mailto:jasonhung9923@gmail.com"
+      "jasonhung2399@gmail.com",
+      "mailto:jasonhung2399@gmail.com"
     ),
   ];
 
@@ -58,20 +62,21 @@ export default function AboutMe() {
       <Grid style={{ textAlign: "center" }}>
         <MyImage src={me} style={iconStyle} />
         <div>
-          <ul style={{ listStyleType: "none", textAlign: "left" }}>
+          <List style={{ listStyleType: "none", textAlign: "left" }}>
             {contactList.map((contact, index) => {
               const { item, id, url } = contact;
               return (
-                <li
+                <ListItem
                   id={index.toString()}
                   onClick={() => {
                     window.open(url);
                   }}
-                  style={contactIconStyle}
+                  sx={contactIconStyle}
+
                 >
                   {item}
                   <span style={{ marginLeft: "3px" }}>{id}</span>
-                </li>
+                </ListItem>
               );
             })}
             {/* <li onClick={() => {}} style={contactIconStyle}>
@@ -83,7 +88,7 @@ export default function AboutMe() {
             <li onClick={() => {}} style={contactIconStyle}>
               <EmailIcon fontSize="medium" /> jasonhung9923@gmail.com
             </li> */}
-          </ul>
+          </List>
         </div>
       </Grid>
 
@@ -99,29 +104,32 @@ export default function AboutMe() {
             padding: "2% 5%",
           }}
         >
-          <h1>Welcome to Jason's Portfolio</h1>
+          <h1>👋 Hi, This is Jason</h1>
           <p style={{ alignItems: "center" }}>
             {/* I’m Jason, currently work as a programmer in StrawberryNet. I would
             say I'm passionate in software development which build projects with
             myself or with other friends. I have also participated in different
             IT competitions with my friends to strengthen my real- world coding
             experience. */}
-            Hello! This is Jason. As a software engineer, I am passionate about designing and
-            developing innovative software solutions that meet the needs of
-            users. 
-            I have a strong background in computer science, programming
-            languages, and software development methodologies. I have experience
-            working with a variety of programming languages such as <b>Java,
-            Python, C#, and JavaScript</b>. 
-            <br></br>
-            <br></br>
-            Moreover, i have solid experience and knowledge in cloud solution as well, running application serverless and mirgating on-premises server to cloud.
+            <Typography paragraph>
+              I’m a passionate Software Engineer with experience in backend development, APIs, and full-stack applications. I enjoy building secure, scalable systems and bringing ideas to life with clean, maintainable code.
+            </Typography>
+
+            <Typography paragraph>
+              With a background in <b>Java, TypeScript/JavaScript (ReactJS, NodeJS), Python and C#</b>, and experience across cloud platforms like AWS, I’ve contributed to both startup and enterprise projects — <b>from streamlining e-commerce APIs to migrating infrastructure to the cloud</b>.
+            </Typography>
+
+            <Typography paragraph>
+              Whether it’s collaborating with cross-functional teams, optimizing performance, or diving into new frameworks, I’m always eager to grow and make meaningful impact through technology.
+            </Typography>
+
+
           </p>
 
           <Card style={skillsGridStyle}>
             <Skills />
           </Card>
-          <Button>Download MY CV</Button>
+          {/* <Button>Download MY CV</Button> */}
         </Grid>
       </Grid>
     </Grid>

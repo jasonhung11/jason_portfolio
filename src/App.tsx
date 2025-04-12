@@ -15,37 +15,37 @@ const getDesignTokens = (mode: PaletteMode) => ({
     mode,
     ...(mode === "light"
       ? {
-          primary: {
-            light: "#000",
-            main: "#fff",
-            dark: "#000",
-            contrastText: "#000",
-          },
-          background: {
-            default: "#fff",
-            paper: "#fff",
-          },
-          secondary: {
-            main: "#64748B",
-            contrastText: "#fff",
-          },
-        }
+        primary: {
+          light: "#000",
+          main: "#fff",
+          dark: "#000",
+          contrastText: "#000",
+        },
+        background: {
+          default: "#fff",
+          paper: "#fff",
+        },
+        secondary: {
+          main: "#64748B",
+          contrastText: "#fff",
+        },
+      }
       : {
-          primary: {
-            light: "#fff",
-            main: "#000",
-            dark: "#fff",
-            contrastText: "#fff",
-          },
-          background: {
-            default: "#000",
-            paper: "#01040E",
-          },
-          secondary: {
-            main: "#fff",
-            contrastText: "#000",
-          },
-        }),
+        primary: {
+          light: "#fff",
+          main: "#000",
+          dark: "#fff",
+          contrastText: "#fff",
+        },
+        background: {
+          default: "#000",
+          paper: "#01040E",
+        },
+        secondary: {
+          main: "#fff",
+          contrastText: "#000",
+        },
+      }),
   },
 });
 

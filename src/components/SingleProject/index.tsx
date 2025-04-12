@@ -7,10 +7,10 @@ import Typography from '@mui/material/Typography';
 import { ProjectType } from '../Projects';
 import { SingleProjectCard } from './styles';
 
-  
-export default function SingleProject(props: {project: ProjectType} ) {
-    const project = props.project
-    const colorList = []
+
+export default function SingleProject(props: { project: ProjectType }) {
+  const project = props.project
+  const colorList = []
 
   return (
     <SingleProjectCard sx={{
@@ -19,17 +19,20 @@ export default function SingleProject(props: {project: ProjectType} ) {
       },
     }}>
       <CardContent>
-        <Typography variant="h5" component="div">
+        <Typography variant="h5" component="div" sx={{ justifySelf: 'center' }}>
           {project.title}
         </Typography>
 
-        <Typography variant="body2" style={{marginTop: "3%", padding: "0 1%"}}>
+        {project.skills.length > 0 && <>Tech Stacks: {' '}
+          <strong>{project.skills.join(', ')}</strong>
+        </>}
+        <Typography variant="body2" style={{ marginTop: "3%", padding: "0 1%" }}>
           {project.description}
         </Typography>
       </CardContent>
       <CardActions>
-        {project.link !== "" &&  <Button color="secondary" size="small" href={project.link} target='_blank'>Learn More</Button>}
-       
+        {project.link !== "" && <Button color="secondary" size="small" href={project.link} target='_blank'>Learn More</Button>}
+
       </CardActions>
     </SingleProjectCard>
   );

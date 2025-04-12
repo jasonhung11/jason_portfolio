@@ -1,7 +1,7 @@
 {
   "name": "my-app",
   "version": "0.1.0",
-  "homepage": "https://jasonhung11.github.io/jason_profiles",
+  "homepage": "https://jasonhung11.github.io/jason_portfolio",
   "private": true,
   "dependencies": {
     "@mui/icons-material": "^5.11.0",
